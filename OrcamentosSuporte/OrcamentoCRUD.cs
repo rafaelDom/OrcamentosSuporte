@@ -15,7 +15,7 @@ namespace OrcamentosSuporte
         public void inserir(OrcamentoModel orcamentoModel)
         {
 
-            string sql = "INSERT INTO Orcamento(empresa, equipamento, data_orc, servico_realizado, valor, garantia, responsavel, email, telefone) VALUES (@empresa, @equipamento, @data_orc, @servico_realizado, @valor, @garantia, @responsavel, @email, @telefone)";
+            string sql = "INSERT INTO Orcamento(empresa, equipamento, data_orc, servico_realizado, valor, garantia, responsavel, email, telefone, nf, n_serie, observacao) VALUES (@empresa, @equipamento, @data_orc, @servico_realizado, @valor, @garantia, @responsavel, @email, @telefone, @nf, @n_serie, @observacao)";
 
 
             SqlConnection con = ConexaoSQLServer.obterConexao();
@@ -30,7 +30,9 @@ namespace OrcamentosSuporte
             cmd.Parameters.Add(new SqlParameter("@responsavel", orcamentoModel.Responsavel));
             cmd.Parameters.Add(new SqlParameter("@email", orcamentoModel.Email));
             cmd.Parameters.Add(new SqlParameter("@telefone", orcamentoModel.Telefone));
-
+            cmd.Parameters.Add(new SqlParameter("@nf", orcamentoModel.Nf));
+            cmd.Parameters.Add(new SqlParameter("@n_serie", orcamentoModel.N_serie));
+            cmd.Parameters.Add(new SqlParameter("@observacao", orcamentoModel.Observacao));
 
             try
             {
@@ -51,7 +53,7 @@ namespace OrcamentosSuporte
         public void alterar(String id, OrcamentoModel orcamentoModel)
         {
             int idconvertida = Convert.ToInt32(id);
-            string sql = "UPDATE Orcamento set empresa = @empresa, equipamento = @equipamento, data_orc = @data_orc, servico_realizado = @servico_realizado, valor = @valor, garantia = @garantia, responsavel = @responsavel, email = @email, telefone = @telefone where id=@id";
+            string sql = "UPDATE Orcamento set empresa = @empresa, equipamento = @equipamento, data_orc = @data_orc, servico_realizado = @servico_realizado, valor = @valor, garantia = @garantia, responsavel = @responsavel, email = @email, telefone = @telefone, n_serie = @n_serie, observacao, nf = @nf = @observacao where id=@id";
 
 
             SqlConnection con = ConexaoSQLServer.obterConexao();
@@ -67,6 +69,9 @@ namespace OrcamentosSuporte
             cmd.Parameters.Add(new SqlParameter("@responsavel", orcamentoModel.Responsavel));
             cmd.Parameters.Add(new SqlParameter("@email", orcamentoModel.Email));
             cmd.Parameters.Add(new SqlParameter("@telefone", orcamentoModel.Telefone));
+            cmd.Parameters.Add(new SqlParameter("@nf", orcamentoModel.Nf));
+            cmd.Parameters.Add(new SqlParameter("@n_serie", orcamentoModel.N_serie));
+            cmd.Parameters.Add(new SqlParameter("@observacao", orcamentoModel.Observacao));
 
             try
             {

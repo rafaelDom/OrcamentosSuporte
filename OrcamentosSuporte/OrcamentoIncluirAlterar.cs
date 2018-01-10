@@ -88,7 +88,7 @@ namespace OrcamentosSuporte
                 }
                 else
                 {
-                    orcamentoModel.Servico_realizado = orcamentoModel.Servico_realizado + lstselecionados.Items[x].ToString().Trim() + ";";
+                    orcamentoModel.Servico_realizado = orcamentoModel.Servico_realizado + lstselecionados.Items[x].ToString().Trim() + "; ";
                 }
             }
 
@@ -109,6 +109,9 @@ namespace OrcamentosSuporte
             orcamentoModel.Responsavel = txtresponsavel.Text;
             orcamentoModel.Email = txtemail.Text;
             orcamentoModel.Telefone = mktelefone.Text;
+            orcamentoModel.Nf = txtnf.Text;
+            orcamentoModel.N_serie = txtn_serie.Text;
+            orcamentoModel.Observacao = txtobservacao.Text;
 
 
 
@@ -204,6 +207,9 @@ namespace OrcamentosSuporte
                 txtresponsavel.Text = dtlista.Rows[i]["responsavel"].ToString();
                 txtemail.Text = dtlista.Rows[i]["email"].ToString();
                 mktelefone.Text = dtlista.Rows[i]["telefone"].ToString();
+                txtnf.Text = dtlista.Rows[i]["nf"].ToString();
+                txtn_serie.Text = dtlista.Rows[i]["n_serie"].ToString();
+                txtobservacao.Text = dtlista.Rows[i]["observacao"].ToString();
                 listaBD = dtlista.Rows[i]["servico_realizado"].ToString();
                 listaBD = listaBD.Replace(" ","");
 

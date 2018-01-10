@@ -45,7 +45,7 @@ namespace OrcamentosSuporte
                 servicoIncluirAlterar.Show();
             }else
             {
-                MessageBox.Show("Favor selecionar um item para alteração!");
+                MessageBox.Show("Favor selecionar um item para alteração!","Aviso do sistema",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
         }
 
@@ -98,11 +98,11 @@ namespace OrcamentosSuporte
                 }
                 else
                 {
-                    MessageBox.Show("Favor selecionar um item para exclusão!");
+                    MessageBox.Show("Favor selecionar um item para exclusão!", "Aviso do sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }else
             {
-                MessageBox.Show("Favor selecionar um item para exclusão!");
+                MessageBox.Show("Favor selecionar um item para exclusão!", "Aviso do sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

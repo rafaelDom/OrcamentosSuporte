@@ -17,6 +17,9 @@ namespace OrcamentosSuporte
         private String responsavel;
         private String email;
         private String telefone;
+        private String nf;
+        private String n_serie;
+        private String observacao;
 
         public string Empresa
         {
@@ -132,6 +135,45 @@ namespace OrcamentosSuporte
             set
             {
                 telefone = value;
+            }
+        }
+
+        public string Nf
+        {
+            get
+            {
+                return nf;
+            }
+
+            set
+            {
+                nf = value;
+            }
+        }
+
+        public string N_serie
+        {
+            get
+            {
+                return n_serie;
+            }
+
+            set
+            {
+                n_serie = value;
+            }
+        }
+
+        public string Observacao
+        {
+            get
+            {
+                return observacao;
+            }
+
+            set
+            {
+                observacao = value;
             }
         }
     }

@@ -11,7 +11,7 @@ namespace OrcamentosSuporte
     {
         // vamos nos conectar ao SQL Server Express e à base de dados
         // locadora usando Windows Authentication
-        private static string connString = @"Data Source=localhost;Initial Catalog=OrcamentoPardini;Persist Security Info=True;User ID=sa;Password=43690Windows";
+        private static string connString = @"Data Source=localhost\IMPORTACAO;Initial Catalog=OrcamentoPardini;Persist Security Info=True;User ID=sa;Password=43690Windows";
 
         // representa a conexão com o banco
         private static SqlConnection conn = null;

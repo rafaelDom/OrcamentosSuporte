@@ -23,7 +23,7 @@ namespace OrcamentosSuporte
 
         private void carregarOrcamentoBD()
         {
-            string sql = "SELECT id, data_orc, empresa from Orcamento";
+            string sql = "SELECT id, data_orc, empresa, nf from Orcamento";
             // string sql = "SELECT * FROM Servico WHERE descricao = 'teste'";
 
             SqlConnection con = ConexaoSQLServer.obterConexao();
@@ -62,7 +62,7 @@ namespace OrcamentosSuporte
 
         private void button5_Click(object sender, EventArgs e)
         {
-            string sql = "SELECT id, data_orc, empresa from Orcamento WHERE empresa LIKE '%'+ @empresa + '%'";
+            string sql = "SELECT id, data_orc, empresa, nf from Orcamento WHERE empresa LIKE '%'+ @empresa + '%'";
             // string sql = "SELECT * FROM Servico WHERE descricao = 'teste'";
 
             SqlConnection con = ConexaoSQLServer.obterConexao();
@@ -106,7 +106,7 @@ namespace OrcamentosSuporte
             }
             else
             {
-                MessageBox.Show("Favor selecionar um item para alteração!");
+                MessageBox.Show("Favor selecionar um item para alteração!", "Aviso do sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -131,11 +131,11 @@ namespace OrcamentosSuporte
                 }
                 else
                 {
-                    MessageBox.Show("Favor selecionar um item para exclusão!");
+                    MessageBox.Show("Favor selecionar um item para exclusão!", "Aviso do sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }else
             {
-                MessageBox.Show("Favor selecionar um item para exclusão!");
+                MessageBox.Show("Favor selecionar um item para exclusão!", "Aviso do sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

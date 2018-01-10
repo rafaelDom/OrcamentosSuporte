@@ -22,7 +22,7 @@ namespace OrcamentosSuporte
 
         private void carregarOrcamentoBD()
         {
-            string sql = "SELECT id, data_orc, empresa from Orcamento";
+            string sql = "SELECT id, data_orc, empresa, nf from Orcamento";
             // string sql = "SELECT * FROM Servico WHERE descricao = 'teste'";
 
             SqlConnection con = ConexaoSQLServer.obterConexao();
@@ -49,7 +49,7 @@ namespace OrcamentosSuporte
 
         private void button5_Click(object sender, EventArgs e)
         {
-            string sql = "SELECT id, data_orc, empresa from Orcamento WHERE empresa LIKE '%'+ @empresa + '%'";
+            string sql = "SELECT id, data_orc, empresa, nf from Orcamento WHERE empresa LIKE '%'+ @empresa + '%'";
             // string sql = "SELECT * FROM Servico WHERE descricao = 'teste'";
 
             SqlConnection con = ConexaoSQLServer.obterConexao();
@@ -85,9 +85,13 @@ namespace OrcamentosSuporte
             if (dataGridView1.Rows.Count > 1)
             {
                 String id_alterar = dataGridView1.CurrentRow.Cells[0].Value.ToString().Trim();
-                string sql = "SELECT empresa, servico_realizado FROM Orcamento WHERE id=@id";
+                string sql = "SELECT empresa, servico_realizado, responsavel, equipamento, valor, nf FROM Orcamento WHERE id=@id";
                 string empresa;
                 string servico_realizado;
+                string responsavel;
+                string modelo;
+                string valor;
+                string nf;
 
 
                 // string sql = "SELECT * FROM Servico WHERE descricao = 'teste'";
@@ -105,13 +109,16 @@ namespace OrcamentosSuporte
 
                 empresa = dtlista.Rows[0]["empresa"].ToString();
                 servico_realizado = dtlista.Rows[0]["servico_realizado"].ToString();
-
+                responsavel = dtlista.Rows[0]["responsavel"].ToString();
+                modelo = dtlista.Rows[0]["equipamento"].ToString();
+                valor = dtlista.Rows[0]["valor"].ToString();
+                nf = dtlista.Rows[0]["nf"].ToString();
 
                 GerarPDF gerarPDF = new GerarPDF();
-                gerarPDF.gerarPDF(empresa, servico_realizado);
+                gerarPDF.gerarPDF(empresa, servico_realizado,responsavel, modelo, valor, nf);
             }else
             {
-                MessageBox.Show("Favor selecionar um orçamento para gerar em .pdf!");
+                MessageBox.Show("Favor selecionar um orçamento para gerar em .pdf!", "Aviso do sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
